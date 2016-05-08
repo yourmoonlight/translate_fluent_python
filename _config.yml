@@ -1,0 +1,23 @@
+markdown: kramdown
+highlighter: rouge
+permalink: none
+sitename: 流利的Python
+
+chapters:
+- preface 
+- prologue
+- data structures
+- functions as objects
+- object oriented idioms 
+- control flow
+- metaprogramming 
+- appendix
+
+preface: 前言
+prologue: 序章Python数据模型
+data structures: 数据结构
+functions as objects: “一级公民” 函数
+object oriented idioms: 面向对象的一些行话，风格
+control flow: 非一般的流程控制
+metaprogramming: 黑魔法元编程
+appendix: 后记 
