@@ -10,11 +10,11 @@ modifiedOn: 2016-05-08
 
 Python最棒的特性之一就是它的一致性，等你学完Python 数据模型，你就会理解一致性的含义。
 
-然而，如果你学Python之前学过其他面相对象的语言，你可能已经习惯collection.len(), 但是在Python中，我们是这么用的，len(collection)。这个明显的不同，只是冰山一角。当你差不多理解了这个不同，就是你理解什么叫*Pythonic*的时候。
+然而，如果你学Python之前学过其他面相对象的语言，你可能已经习惯collection.len(), 但是在Python中，我们是这么用的，len(collection)。这个明显的不同，只是冰山一角。当你理解了这个不同之处，你就理解了什么叫*Pythonic*。
 
 这个所谓的冰山指的就是Python的数据模型，它描述了一些API，如果你想让自己创建的object符合Python的语言习惯，那就得好好玩玩这些API。
 
-你可以把Python数据模型当成Python的框架来理解。Python里有很多“积木”，比如sequence，iterators， functions，classes，context managers等等，数据模型规范了这些“积木”的接口。
+你可以把Python数据模型当成Python的框架来理解。Python里有很多“积木”，比如sequence，iterators， functions，classes，context managers等等，Python数据模型规范了这些“积木”的接口。
 
 当你用框架编程时，你主要时间花费在，写一些将被框架调用的方法，这跟你使用Python的数据模型编程是一个道理。通过一些语法的触发，Python的解释器会调用魔法方法来完成基本的对象操作。那些魔法方法总是以双下划线开头，双下划线结尾（i.e. _ _ getitem  _ _）。比如，使用obj[key] 这种语法就是 魔法方法 _ _getitem _ _在背后起作用，遇到这种obj[key]写法，解释器会调用obj. _ _getitem _ _(key)。
 
