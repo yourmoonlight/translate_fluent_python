@@ -96,3 +96,16 @@ Card(rank='K', suit='spades')
 
 而且好处还不止以上两点！
 
+因为_ _ getitem _ _ 委托到了self._cards[]，我们的FrenchDeck实例自动支持了slicing（切片操作）。
+
+而且，因为实现了_ _ getitem _ _这个魔法方法，我们的FrenchDeck实例也是可迭代的，可以进行 for 操作。
+
+```python
+>>> for card in deck:
+    	print(card)
+Card(rank='2', suit='spades')
+Card(rank='3', suit='spades')
+....
+```
+
+顺便提一下，in ，not in 一般是魔法方法_ _ contains _ _ 在起作用，如果没有实现_ _ contains _ _ ，in 操作会按顺序扫一遍，找到就返回True，找不到返回False。
