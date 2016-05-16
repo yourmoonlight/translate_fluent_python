@@ -109,3 +109,32 @@ Card(rank='3', suit='spades')
 ```
 
 顺便提一下，in ，not in 一般是魔法方法_ _ contains _ _ 在起作用，如果没有实现_ _ contains _ _ ，in 操作会按顺序扫一遍，找到就返回True，找不到返回False。
+
+现在再来对牌进行排序，我们写一个函数输入一张牌，返回牌对应的数字，比如梅花♣️2是最小的，对应数字0，黑桃♠️A是最大的，对应数字51:
+
+```python
+suit_values = dict(spades=3, hearts=2, diamonds=1, clubs=0)
+def spades_high(card):
+    rank_value = FrenchDeck.ranks.index(card.rank)
+    return rank_value * len(suit_values) + suit_values[card.suit]
+```
+
+我们可以把这个函数作为sorted的key参数传进去，就能对deck排序啦。
+
+```python
+>>> for card in sorted(deck, key=spades_high):
+    	print(card)
+Card(rank='2', suit='clubs')
+Card(rank='2', suit='diamonds')
+Card(rank='2', suit='hearts')
+.....
+```
+
+尽管FrenchDeck 隐式地继承自object（在Python3中所有的类，自动继承自object，在Python2里你需要显式继承），但是FrenchDeck所具有的功能，是我们利用Python数据模型，实现了_ _ len_ _ 和 _ _ getitem_ _ 两个魔法方法得来的，我们的FrenchDeck就像一个标准的Python序列，可以使用Python的语言特性（比如：迭代，切片），还可以对它使用Python标准库里的方法，比如random.choice, reversed, sorted ...
+
+还有个问题，怎么洗牌呢？到目前为止FrenchDeck还不能洗牌呢，因为它是immutable（不可变的），除非打破封装，直接对_cards属性进行操作。在第十一章，我们会再来看这个问题，先剧透一下，到时候可以用另外一个魔法方法 _ _ setitem _ _。
+
+
+
+
+
