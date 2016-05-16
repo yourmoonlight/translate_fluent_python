@@ -134,7 +134,9 @@ Card(rank='2', suit='hearts')
 
 还有个问题，怎么洗牌呢？到目前为止FrenchDeck还不能洗牌呢，因为它是immutable（不可变的），除非打破封装，直接对_cards属性进行操作。在第十一章，我们会再来看这个问题，先剧透一下，到时候可以用另外一个魔法方法 _ _ setitem _ _。
 
+## 魔法方法是怎么用的？
 
+关于Python魔法方法，第一件你要搞明白的事，它们是被Python解释器调用的，通常你不会这么写my_object._ _ len_ _()，一般是这样len(my_object)。如果my_object是你自己定义的类的实例，那Python解释器会调用你实现的 _ _len _ _实例方法。
 
-
+但是对于像list，str，bytearray等等这样的内置类型，解释器会抄个近路。
 
