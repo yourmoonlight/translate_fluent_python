@@ -138,5 +138,9 @@ Card(rank='2', suit='hearts')
 
 关于Python魔法方法，第一件你要搞明白的事，它们是被Python解释器调用的，通常你不会这么写my_object._ _ len_ _()，一般是这样len(my_object)。如果my_object是你自己定义的类的实例，那Python解释器会调用你实现的 _ _len _ _实例方法。
 
-但是对于像list，str，bytearray等等这样的内置类型，解释器会抄个近路。
+但是对于像list，str，bytearray等等这样的内置类型，解释器会抄个近路。len()的CPython实现，实际上会返回内存中PyVarObject结构体中的ob_size的值，这可比调用一个方法快多了。
+
+经常的，魔法方法也是隐式调用的。比如for i in x，实际上是调用iter(x)，而iter(x)会被解释器翻译成x._ _iter _ _()。不过一般情况下，你不经常直接操作魔法方法，唯一一个经常出现在你眼前的是 _ _init _ _，在你自己的 _ _ init _ _ 中调用基类的 _ _ init _ _。不过当你在玩元编程的时候，更多的时候是去实现一个魔法方法。
+
+如果你需要调用一个魔法方法，调用相关的内置函数（e.g.  len，iter， str，等等）会更好一点。
 
